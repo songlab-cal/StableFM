@@ -2,7 +2,7 @@
 
 This repository contains data and scripts for the following paper:
 
-| Aw, A.J., Jin, L.C., Ioannidis, N.M., and Song, Y.S. (2023+) "The impact of stability considerations on genetic fine-mapping"
+> Aw, A.J., Jin, L.C., Ioannidis, N.M., and Song, Y.S. (2023+) "The impact of stability considerations on genetic fine-mapping"
 
 ## Fine-mapping results
 
