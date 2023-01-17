@@ -1,0 +1,13 @@
+# Data Files
+
+Data spanning multiple layers of analytical processing are provided here. 
+
+## Directory Structure
+
+| Data                                                         | File Measurements and Description                                                                                                                                                                                                                  | Location                 |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| Fine-mapped variants for each gene, with moderators          | Split by chromosome. Per chromosome, ~ 1000 rows and 40 columns. For each gene (row), columns store the stable and top variants’ coordinates, rsIDs, posterior probabilities, supports, slice-stability metrics, etc., across three potential sets | `/results_with_moderators` |
+| Fine-mapped variants for each gene, with all 378 annotations | Split by chromosome. Per chromosome, ~ 1000 rows and 1135 columns. For each gene (row), columns store 1134 functional annotations across three potential sets and 378 different annotations per potential set                                      | `/all_func_annots`         |
+| Raw perturbation score predictions by Enformer               | TBA                                                                                                                                                                                                                                                | `/enformer_predictions`    |
+| Raw fine-mapping results                                     | TBA                                                                                                                                                                                                                                                | `/pics2_results`           |
+| Raw genotype and phenotype data                              | TBA                                                                                                                                                                                                                                                | `/geno_pheno`              |
