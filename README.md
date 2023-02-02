@@ -15,3 +15,18 @@ Summary files containing the 378 functional annotations associated with each fin
 ## Generating Figures in Paper
 
 Code for generating figures is stored under `scripts`.
+
+```
+# Command for Executing Script
+Rscript generate_paper_figs.R
+```
+
+## Running PICS2
+
+Standalone code for running PICS2 is stored under `scripts`, along with example data. The example data uses gene expression of [PRKAA2](http://genome.cse.ucsc.edu/cgi-bin/hgGene?org=Human&hgg_chrom=none&hgg_type=knownGene&hgg_gene=uc001cyk.5) (ENSG00000162409.6), which is transcribed in Chromosome 1. 
+
+```
+# Command for Executing Script - RUN AFTER UNZIPPING toy-data/genotype_array.csv.zip
+# Internal functions can also be copied and used elsewhere; see R script for details
+Rscript runPICS2.R 500 3 toy-data/genotype_array.csv toy-data/phenotype_vector.txt toy-data/snp_metadata.txt toy-data/sample_metadata.txt toy-data/gene_tss_metadata.txt toy-data/covars_array.csv toy-results/
+```

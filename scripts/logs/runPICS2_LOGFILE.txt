@@ -1,0 +1,144 @@
+Rows: 445 Columns: 137125
+── Column specification ─────────────────────────────────────────────────────────────
+Delimiter: ","
+chr      (1): ID
+dbl (137124): V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 445 Columns: 2
+── Column specification ─────────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (1): ID
+dbl (1): ENSG00000162409.6
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 137124 Columns: 6
+── Column specification ─────────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (3): rsid, allele1, allele2
+dbl (3): chr, genetic.dist, pos
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 445 Columns: 6
+── Column specification ─────────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (1): ID
+dbl (5): YRI, TSI, GBR, FIN, CEU
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 2365 Columns: 8
+── Column specification ─────────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (4): GENE_ID, GEUVADIS, CHR, DIRECTION
+dbl (3): LEFT, TSS, RIGHT
+lgl (1): IN_GENCODE
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 445 Columns: 6
+── Column specification ─────────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): ID
+dbl (5): PC1, PC2, PC3, PC4, PC5
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Wed Feb  1 18:05:17 2023: GEUVADIS ID = ENSG00000162409.6
+Wed Feb  1 18:05:17 2023: TSS = 57110987
+Wed Feb  1 18:05:17 2023: LEFT ENDPOINT = 56110987
+Wed Feb  1 18:05:17 2023: RIGHT ENDPOINT = 58110987
+Wed Feb  1 18:05:18 2023: Running stability-guided approach
+Wed Feb  1 18:05:18 2023: Found 5 one-hot-encoded external annotations from 5 original annotations.
+Wed Feb  1 18:05:18 2023: Removing non-polymorphic SNPs from smaller genotype matrix for annotation = ALL...
+Wed Feb  1 18:05:18 2023: Prior probabilities are unnamed, giving matching names to SNPs
+Wed Feb  1 18:05:18 2023: Checking dimension of genotype matrix -- 445 by 1644
+Wed Feb  1 18:05:18 2023: Computing lead SNPs and lead set 1...
+Wed Feb  1 18:05:18 2023: Lead SNP found is rs2991265.
+Wed Feb  1 18:05:18 2023: Found 4 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:05:18 2023: Computing lead SNPs and lead set 2...
+Wed Feb  1 18:05:19 2023: Lead SNP found is rs3768203.
+Wed Feb  1 18:05:19 2023: Found 6 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:05:19 2023: Computing lead SNPs and lead set 3...
+Wed Feb  1 18:05:19 2023: Lead SNP found is rs491585.
+Wed Feb  1 18:05:19 2023: Found 10 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:05:36 2023: Removing non-polymorphic SNPs from smaller genotype matrix for annotation = YRI...
+Wed Feb  1 18:05:36 2023: Prior probabilities are unnamed, giving matching names to SNPs
+Wed Feb  1 18:05:36 2023: Checking dimension of genotype matrix -- 87 by 1441
+Wed Feb  1 18:05:36 2023: Computing lead SNPs and lead set 1...
+Wed Feb  1 18:05:36 2023: Lead SNP found is rs12126955.
+Wed Feb  1 18:05:36 2023: Found 8 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:05:36 2023: Computing lead SNPs and lead set 2...
+Wed Feb  1 18:05:36 2023: Lead SNP found is rs4634948.
+Wed Feb  1 18:05:36 2023: Found 17 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:05:36 2023: Computing lead SNPs and lead set 3...
+Wed Feb  1 18:05:37 2023: Lead SNP found is rs1136164.
+Wed Feb  1 18:05:37 2023: Found 8 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:05:58 2023: Removing non-polymorphic SNPs from smaller genotype matrix for annotation = TSI...
+Wed Feb  1 18:05:58 2023: Prior probabilities are unnamed, giving matching names to SNPs
+Wed Feb  1 18:05:58 2023: Checking dimension of genotype matrix -- 91 by 1480
+Wed Feb  1 18:05:58 2023: Computing lead SNPs and lead set 1...
+Wed Feb  1 18:05:59 2023: Lead SNP found is rs75661113.
+Wed Feb  1 18:05:59 2023: Found 3 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:05:59 2023: Computing lead SNPs and lead set 2...
+Wed Feb  1 18:05:59 2023: Lead SNP found is rs1361727.
+Wed Feb  1 18:05:59 2023: Found 13 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:05:59 2023: Computing lead SNPs and lead set 3...
+Wed Feb  1 18:05:59 2023: Lead SNP found is rs17469007.
+Wed Feb  1 18:05:59 2023: Found 11 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:06:15 2023: Removing non-polymorphic SNPs from smaller genotype matrix for annotation = GBR...
+Wed Feb  1 18:06:15 2023: Prior probabilities are unnamed, giving matching names to SNPs
+Wed Feb  1 18:06:15 2023: Checking dimension of genotype matrix -- 86 by 1444
+Wed Feb  1 18:06:15 2023: Computing lead SNPs and lead set 1...
+Wed Feb  1 18:06:15 2023: Lead SNP found is rs114561339.
+Wed Feb  1 18:06:15 2023: Found 5 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:06:15 2023: Computing lead SNPs and lead set 2...
+Wed Feb  1 18:06:16 2023: Lead SNP found is rs12088488.
+Wed Feb  1 18:06:16 2023: Found 20 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:06:16 2023: Computing lead SNPs and lead set 3...
+Wed Feb  1 18:06:16 2023: Lead SNP found is rs55724763.
+Wed Feb  1 18:06:16 2023: Found 1 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:06:35 2023: Removing non-polymorphic SNPs from smaller genotype matrix for annotation = FIN...
+Wed Feb  1 18:06:35 2023: Prior probabilities are unnamed, giving matching names to SNPs
+Wed Feb  1 18:06:35 2023: Checking dimension of genotype matrix -- 92 by 1436
+Wed Feb  1 18:06:35 2023: Computing lead SNPs and lead set 1...
+Wed Feb  1 18:06:35 2023: Lead SNP found is rs553453.
+Wed Feb  1 18:06:35 2023: Found 15 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:06:35 2023: Computing lead SNPs and lead set 2...
+Wed Feb  1 18:06:35 2023: Lead SNP found is rs947636.
+Wed Feb  1 18:06:35 2023: Found 9 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:06:35 2023: Computing lead SNPs and lead set 3...
+Wed Feb  1 18:06:35 2023: Lead SNP found is rs1832899.
+Wed Feb  1 18:06:35 2023: Found 4 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:06:53 2023: Removing non-polymorphic SNPs from smaller genotype matrix for annotation = CEU...
+Wed Feb  1 18:06:53 2023: Prior probabilities are unnamed, giving matching names to SNPs
+Wed Feb  1 18:06:53 2023: Checking dimension of genotype matrix -- 89 by 1457
+Wed Feb  1 18:06:53 2023: Computing lead SNPs and lead set 1...
+Wed Feb  1 18:06:53 2023: Lead SNP found is rs10489468.
+Wed Feb  1 18:06:53 2023: Found 2 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:06:53 2023: Computing lead SNPs and lead set 2...
+Wed Feb  1 18:06:53 2023: Lead SNP found is rs2066370.
+Wed Feb  1 18:06:53 2023: Found 7 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:06:53 2023: Computing lead SNPs and lead set 3...
+Wed Feb  1 18:06:53 2023: Lead SNP found is rs553453.
+Wed Feb  1 18:06:53 2023: Found 14 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:07:08 2023: Running residualization approach
+Wed Feb  1 18:07:08 2023: Residualize against 5 potential confounders
+Wed Feb  1 18:07:08 2023: Prior probabilities are unnamed, giving matching names to SNPs
+Wed Feb  1 18:07:08 2023: Checking dimension of genotype matrix -- 445 by 1644
+Wed Feb  1 18:07:08 2023: Computing lead SNPs and lead set 1...
+Wed Feb  1 18:07:08 2023: Lead SNP found is rs4912423.
+Wed Feb  1 18:07:08 2023: Found 6 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:07:08 2023: Computing lead SNPs and lead set 2...
+Wed Feb  1 18:07:08 2023: Lead SNP found is rs2991265.
+Wed Feb  1 18:07:08 2023: Found 4 SNPs with |r| > 0.5 to the lead SNP.
+Wed Feb  1 18:07:08 2023: Computing lead SNPs and lead set 3...
+Wed Feb  1 18:07:08 2023: Lead SNP found is rs491585.
+Wed Feb  1 18:07:08 2023: Found 10 SNPs with |r| > 0.5 to the lead SNP.
+Warning message:
+executing %dopar% sequentially: no parallel backend registered 
+Warning message:
+In sink() : no sink to remove
