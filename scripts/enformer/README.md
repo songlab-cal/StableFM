@@ -9,6 +9,7 @@ Below, we break down our data processing into modular steps to facilitate exposi
 The compressed object containing track predictions is available [here](https://doi.org/10.6084/m9.figshare.22032167.v1) (note file size is slightly larger than 6GB). 
 
 > 1.1 Download the object and decompress to retrieve eight numpy files (e.g., run `unzip raw_scores.zip`) 
+
 > 1.2 Process numpy files (run `python get_csv.py`)
 
 _Explanation._ This step converts the numpy files to eight corresponding csv files that are easier for subsetting in the next step. The csv files contain predictions across 5,313 tracks (listed [here](https://raw.githubusercontent.com/calico/basenji/master/manuscripts/cross2020/targets_human.txt)), for a few thousand genes. 
