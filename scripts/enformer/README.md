@@ -24,7 +24,7 @@ Enformer performs predictions on 5,313 tracks, but our fine-mapping experiments 
 
 The eight numpy files are combined by grouping stable variants together and top variants together. Moreover, we convert differences in track predictions (ALT - REF) to absolute differences (|ALT - REF|), or ''perturbation scores.''
 
-> 3.1 Combine and convert differences (run `get_magnitudes.R`)
+> 3.1 Combine and convert differences (run `Rscript get_magnitudes.R`)
 
 The final outputs from accomplishing the steps above are:
 
