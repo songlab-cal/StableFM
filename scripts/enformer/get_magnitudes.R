@@ -78,8 +78,8 @@ top.diff.pred.tss.relevant.comb <- rbind(top.diff.pred.tss.relevant,
                                          top.diff.pred.tss.relevant.new)
 
 # Save
-save(top.diff.pred.tss.relevant.comb, file="top_diff_tss_relevant_comb.rds")
-save(stab.diff.pred.tss.relevant.comb, file="stab_diff_tss_relevant_comb.rds")
-save(top.diff.pred.ave.relevant.comb, file="top_diff_ave_relevant_comb.rds")
-save(stab.diff.pred.ave.relevant.comb, file="stab_diff_ave_relevant_comb.rds")
+save(top.diff.pred.tss.relevant.comb, file="../../data/enformer_predictions/top_diff_tss_relevant_comb.rds")
+save(stab.diff.pred.tss.relevant.comb, file="../../data/enformer_predictions/stab_diff_tss_relevant_comb.rds")
+save(top.diff.pred.ave.relevant.comb, file="../../data/enformer_predictions/top_diff_ave_relevant_comb.rds")
+save(stab.diff.pred.ave.relevant.comb, file="../../data/enformer_predictions/stab_diff_ave_relevant_comb.rds")
 
