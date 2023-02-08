@@ -1,0 +1,7 @@
+TSS_DIST
+CTCF Binding Site
+Enhancer
+Open chromatin
+Promoter Flanking Region
+Promoter
+TF binding site

@@ -1,0 +1,7 @@
+Measures the absolute distance of the variant to the gene's canonical transcription start site.
+Measures the enrichment of the variant, relative to all input variants of fine-mapping, for CTCF Binding Site.
+Measures the enrichment of the variant, relative to all input variants of fine-mapping, for Enhancer.
+Measures the enrichment of the variant, relative to all input variants of fine-mapping, for Open chromatin.
+Measures the enrichment of the variant, relative to all input variants of fine-mapping, for Promoter Flanking Region.
+Measures the enrichment of the variant, relative to all input variants of fine-mapping, for Promoter.
+Measures the enrichment of the variant, relative to all input variants of fine-mapping, for TF binding site.

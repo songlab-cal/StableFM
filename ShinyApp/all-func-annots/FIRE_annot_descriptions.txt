@@ -1,0 +1,1 @@
+The FIRE score measures the variant's potential to regulate the expression levels of nearby genes. A higher score indicates a greater potential.

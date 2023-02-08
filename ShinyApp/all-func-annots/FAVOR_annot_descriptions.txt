@@ -1,0 +1,16 @@
+The CADD raw value measures whether the variant is likely to be observed or simulated. A higher score indicates a higher chance of being simulated. A positive score indicates the variant is likely simulated, while a negative score indicates the variant is likely observed.
+The CADD 'PHRED-scaled' value measures the relative deleteriousness of the variant by ranking the scores of all possible substitutions (8.6x10^9) of the human genome. A score of c indicates that the variant is in the top ((10^-(c/10))x100)% most deleterious substitutions (so a variant with c = 10 is in the top 10%).
+The SIFT value is the estimated normalized probability that the amino acid change associated with the variant substitution (if it exists) is tolerated. A smaller score indicates greater deleteriousness.
+The PolyPhen-2 value measures the possible impact of an amino acid substitution associated with the variant substitution (if it exists) on the structure and function of a human protein. A higher score indicates greater functional significance.    
+The primate PhyloP value measures evolutionary conservation at an alignment site. A higher score indicates the region around the variant is more conserved. A positive score indicates the associated region undergoes slower evolution than expected, while a negative score indicates the associated region undergoes accelerated evolution. 
+The mammal PhyloP value measures evolutionary conservation at an alignment site. A higher score indicates the region around the variant is more conserved. A positive score indicates the associated region undergoes slower evolution than expected, while a negative score indicates the associated region undergoes accelerated evolution.
+The vertebrate PhyloP value measures evolutionary conservation at an alignment site. A higher score indicates the region around the variant is more conserved. A positive score indicates the associated region undergoes slower evolution than expected, while a negative score indicates the associated region undergoes accelerated evolution.
+The GerpN value is the estimated neutral substitution rate at the variant position. A higher score indicates greater conservation.
+The GerpS value is the estimated rejected substitution rate at the variant position. A positive score indicates a deficit in substitutions.
+The B statistic measures the background selection at the variant position. A smaller value indicates a larger impact of background selection on the variant.
+The LINSIGHT value is the estimated probability that the variant site is under selection. A higher value indicates greater functional significance. 
+The Funseq2 value measures the deleteriousness of the variant. 
+The Aloft value measures the loss of function associated with the variant.
+The CpG value is the percent CpG in a 75 bp window centered on the variant position.
+The GC value is the percent GC in a 75 bp window centered on the variant position.
+The Fathmm-XF value is the estimated probability that a particular SNV is pathogenic (a Platt-scaled score of a classifier). A higher score indicates more functionality. 

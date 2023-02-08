@@ -1,0 +1,16 @@
+CADD.RawScore
+CADD.PHRED
+SIFTval
+PolyPhenVal
+priPhyloP
+mamPhyloP
+verPhyloP
+GerpN
+GerpS
+bStatistic
+LINSIGHT
+Funseq.Value
+Aloft.Value
+CpG
+GC
+Fathmm.XF

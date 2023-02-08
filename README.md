@@ -14,7 +14,7 @@ For convenience, csv files with Benjamini-Hochberg-adjusted p-values are also st
 
 Summary files containing the 378 functional annotations associated with each fine-mapped variant (stable or top) are stored under `data/all_func_annots`. We recommend directly working with these files to reproduce our findings and figures.
 
-## Generating Figures in Paper
+## Generating figures in paper
 
 Code for generating figures is stored under `scripts`.
 
@@ -22,6 +22,10 @@ Code for generating figures is stored under `scripts`.
 # Command for Executing Script
 Rscript generate_paper_figs.R
 ```
+
+## Shiny App
+
+Open-source code for building and deploying our Shiny application is under `ShinyApp`. 
 
 ## Running PICS2
 
