@@ -8,6 +8,8 @@ This repository contains data and scripts for the following paper:
 
 Results are stored under `data/results_with_moderators`.
 
+For convenience, csv files with Benjamini-Hochberg-adjusted p-values are also stored under `data/results_with_moderators/p_values`.
+
 ## Summary data files
 
 Summary files containing the 378 functional annotations associated with each fine-mapped variant (stable or top) are stored under `data/all_func_annots`. We recommend directly working with these files to reproduce our findings and figures.
