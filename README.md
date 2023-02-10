@@ -8,7 +8,7 @@ This repository contains data and scripts for the following paper:
 
 Results are stored under `data/results_with_moderators`.
 
-For convenience, csv files with Benjamini-Hochberg-adjusted p-values are also stored under `data/results_with_moderators/p_values`.
+For convenience, csv files with both raw and Benjamini-Hochberg-adjusted p-values are also stored under `data/results_with_moderators/p_values`.
 
 ## Summary data files
 
