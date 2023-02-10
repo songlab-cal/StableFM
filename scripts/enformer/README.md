@@ -12,7 +12,7 @@ The compressed object containing track predictions is available [here](https://d
 
 > 1.2 Process numpy files (run `python get_csv.py`)
 
-_Explanation._ This step converts the numpy files to eight corresponding csv files that are easier for subsetting in the next step. The csv files contain predictions across 5,313 tracks (listed [here](https://raw.githubusercontent.com/calico/basenji/master/manuscripts/cross2020/targets_human.txt)), for a few thousand genes. 
+_Explanation._ This step converts the numpy files to eight corresponding csv files that are easier for subsetting in the next step. The csv files contain predictions across 5,313 tracks (listed [here](https://raw.githubusercontent.com/calico/basenji/master/manuscripts/cross2020/targets_human.txt), also available in `enformer-data` subdirectory), for a few thousand genes. 
 
 ## 2. Subset to relevant tracks
 

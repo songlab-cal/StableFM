@@ -1,0 +1,5 @@
+# Notes
+
+1. The file `targets_human.txt` is obtained from [here](https://raw.githubusercontent.com/calico/basenji/master/manuscripts/cross2020/targets_human.txt). The tracks listed span a diverse range of epigenetic and transcriptional profiles. These profiles were measured as part of the [ENCODE](https://www.encodeproject.org/) and [NIH Roadmap Epigenomics](https://www.ncbi.nlm.nih.gov/geo/roadmap/epigenomics/) projects, and several deep learning models have recently been trained on such observations to provide more accurate sequence-to-function prediction algorithms.
+
+2. The file `basenji_relevant_metadata.csv` is a subsetted version of `targets_human.txt`, consisting of GM12878-specific tracks. These tracks correspond to lymphoblastoma-specific epigenetic and transcriptional profiles, making them directly relevant to our fine-mapping study on GEUVADIS data.
