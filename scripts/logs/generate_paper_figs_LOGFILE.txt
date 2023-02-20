@@ -1,14 +1,35 @@
 START SCRIPT
-Tue Jan 17 17:58:33 2023: Loading / installing required libraries for figure generation
-Tue Jan 17 17:58:33 2023: Generating figures in manuscript that rely on data
-Tue Jan 17 17:58:33 2023: Skipping Figure 1: Study Overview...
-Tue Jan 17 17:58:33 2023: Skipping Figure 2: Venn Diagram...
-Tue Jan 17 17:58:33 2023: Generating Figure 3: Matching vs Non-matching...
-Tue Jan 17 17:59:07 2023: Generating Figure 4: Top vs Stable...
-Tue Jan 17 17:59:17 2023: Skipping Figure 5: PICS2 Overview...
+Mon Feb 20 14:53:24 2023: Loading / installing required libraries for figure generation
+Mon Feb 20 14:53:24 2023: Generating figures in manuscript that rely on data
+Mon Feb 20 14:53:24 2023: Skipping Figure 1: Study Overview...
+Mon Feb 20 14:53:24 2023: Skipping Figure 2: Venn Diagram...
+Mon Feb 20 14:53:24 2023: Generating Figure 3: Matching vs Non-matching...
+Rows: 1134 Columns: 10
+── Column specification ────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): ANNOTATION, TYPE
+dbl (8): POTENTIAL_SET, GREATER, LESS, TWO_SIDED, N_MATCH, N_NONMATCH, G...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 1134 Columns: 10
+── Column specification ────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): ANNOTATION, TYPE
+dbl (8): POTENTIAL_SET, GREATER, LESS, TWO_SIDED, N_MATCH, N_NONMATCH, G...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Mon Feb 20 14:53:56 2023: Generating Figure 4: Top vs Stable...
+Mon Feb 20 14:54:10 2023: Skipping Figure 5: PICS2 Overview...
 END OF SCRIPT
 Warning messages:
-1: Removed 30206 rows containing non-finite values (stat_density). 
-2: Removed 48 rows containing missing values (geom_point). 
-3: Removed 48 rows containing missing values (geom_point). 
-4: In sink() : no sink to remove
+1: In makeContent(x) : reached elapsed time limit
+2: Removed 30206 rows containing non-finite values (stat_ecdf). 
+3: Removed 30206 rows containing non-finite values (stat_ecdf). 
+4: Removed 16 rows containing non-finite values (stat_ecdf). 
+5: Removed 1 rows containing missing values (geom_vline). 
+6: Removed 16 rows containing non-finite values (stat_ecdf). 
+7: Removed 1 rows containing missing values (geom_vline). 
+8: Removed 48 rows containing missing values (geom_point). 
+9: Removed 48 rows containing missing values (geom_point). 

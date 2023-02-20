@@ -36,7 +36,7 @@ message(date(), ': Skipping Figure 2: Venn Diagram...')
 ## Optional - uncomment to check that the numbers reported in Venn diagram are correct
 # moderator_data_dir <- '../data/results_with_moderators/'
 # gw.moderator.df <- do.call(rbind, lapply(22:1, readFile <- function(x) {
-#   read.csv(paste0(mediator_data_dir, x, '/all_pp_max.csv'))
+#   read.csv(paste0(moderator_data_dir, x, '/all_pp_max.csv'))
 # }))
 # ps <- 1
 # match.vec <- gw.moderator.df[[paste0('TOP_',ps)]] == gw.moderator.df[[paste0('STAB_',ps)]]
@@ -46,7 +46,7 @@ message(date(), ': Skipping Figure 2: Venn Diagram...')
 message(date(), ': Generating Figure 3: Matching vs Non-matching...')
 moderator_data_dir <- '../data/results_with_moderators/'
 gw.moderator.df <- do.call(rbind, lapply(22:1, readFile <- function(x) {
-  read.csv(paste0(mediator_data_dir, x, '/all_pp_max.csv'))
+  read.csv(paste0(moderator_data_dir, x, '/all_pp_max.csv'))
 }))
 gw.moderator.df$GENE <- sapply(gw.moderator.df$GENE,
                               function(x){
@@ -76,7 +76,8 @@ merged.df <- merge(merge(gw.moderator.df,
                    ps.track.stab,
                    by='GENE')
 merged.df$MATCH <- (merged.df[[paste0('TOP_',ps)]] == merged.df[[paste0('STAB_',ps)]])
-relevant.ids <- complete.cases(merged.df %>% select(c(paste0('TOP_',ps),paste0('STAB_',ps),'TOP','STAB')))
+relevant.ids <- complete.cases(merged.df %>% select(c(paste0('TOP_',ps),paste0('STAB_',ps),
+                                                      'TOP','STAB')))
 collect.vars.df <- merged.df[relevant.ids,] %>% select(c('TOP','STAB','MATCH'))
 
 getProbsWithBernCI <- function(cutoff) {
@@ -143,7 +144,7 @@ point.est$upper <- upper$upper; point.est$lower <- lower$lower
 fig3.right.plot <- ggplot(point.est, aes(x=cutoff,y=100*value)) +
   geom_line(aes(color = variable)) +
   theme_bw() +
-  ylab('Percent of All X Variants') +
+  ylab('Percent of all X variants classified deleterious') +
   xlab(paste0('Deleteriousness cutoff')) +
   geom_vline(xintercept = 10, lty ='dashed') +
   geom_vline(xintercept = 20, lty ='dashed') +
@@ -163,8 +164,8 @@ fig3.right.plot <- ggplot(point.est, aes(x=cutoff,y=100*value)) +
                              '#4daf4a',
                              '#377eb8')) +
   guides(fill='none') +
-  ggtitle('PHRED-scaled CADD') +
-  theme(plot.title = element_text(hjust = 0.5,
+  ggtitle('B. PHRED-scaled CADD') +
+  theme(plot.title = element_text(#hjust = 0.5,
                                   face = 'bold'),
         legend.position=c(0.55, 0.75))
 
@@ -181,7 +182,8 @@ merged.df <- merge(merge(gw.moderator.df,
                    ps.track.stab,
                    by='GENE')
 merged.df$MATCH <- (merged.df[[paste0('TOP_',ps)]] == merged.df[[paste0('STAB_',ps)]])
-relevant.ids <- complete.cases(merged.df %>% select(c(paste0('TOP_',ps),paste0('STAB_',ps),'TOP','STAB')))
+relevant.ids <- complete.cases(merged.df %>% select(c(paste0('TOP_',ps),paste0('STAB_',ps),
+                                                      'TOP','STAB')))
 collect.vars.df <- merged.df[relevant.ids,] %>% select(c('TOP','STAB','MATCH'))
 match.scores <- (collect.vars.df %>% subset(MATCH))$STAB
 nonmatch.top.scores <- (collect.vars.df %>% subset(!MATCH))$TOP
@@ -194,7 +196,8 @@ df.for.plot <- data.frame(SCORE = c(match.scores,
                                    rep('Non-match Stable',length(nonmatch.stab.scores))))
 
 fig3.left.plot <- ggplot(df.for.plot, aes(x=SCORE)) +
-  geom_density(aes(fill = TYPE, color = TYPE),alpha=0.45) +
+  #geom_density(aes(fill = TYPE, color = TYPE),alpha=0.45) +
+  stat_ecdf(geom = "step", aes(colour = TYPE)) + 
   xlim(c(1,10)) +
   theme_bw() +
   scale_color_manual('',labels=c('Matching',
@@ -203,31 +206,156 @@ fig3.left.plot <- ggplot(df.for.plot, aes(x=SCORE)) +
                      values=c('#e41a1c',
                               '#377eb8',
                               '#4daf4a')) +
-  scale_fill_manual('',labels=c('Matching',
-                                'Non-match Stable',
-                                'Non-match Top'),
-                    values=c('#e41a1c',
-                             '#377eb8',
-                             '#4daf4a')) +
+  #scale_fill_manual('',labels=c('Matching',
+  #                              'Non-match Stable',
+  #                              'Non-match Top'),
+  #                  values=c('#e41a1c',
+  #                           '#377eb8',
+  #                           '#4daf4a')) +
   xlab('Score') +
-  ylab('Density') +
+  #ylab('Density') +
+  ylab('Empirical CDF') +
   geom_vline(xintercept = 1, lty ='dashed') +
-  ggtitle('Raw CADD') +
-  theme(plot.title = element_text(hjust = 0.5,
+  ggtitle('A. Raw CADD') +
+  theme(plot.title = element_text(#hjust = 0.5,
                                   face = 'bold'),
-        legend.position=c(0.55, 0.75))
+        legend.position=c(0.55, 0.65))
 combined.plot <- gridExtra::grid.arrange(fig3.left.plot, fig3.right.plot, ncol = 2)  
+
+# [!] 2/20/23 - Include Enformer plots
+# Bottom left subfigure
+match.vs.top.df <- readr::read_csv('../data/results_with_moderators/p_values/match_vs_top.csv')
+match.vs.stab.df <- readr::read_csv('../data/results_with_moderators/p_values/match_vs_stable.csv')
+
+## Optional - uncomment to check that ENCFF313LYI has smallest p-value
+# min.match.vs.top <- match.vs.top.df %>% 
+#   subset(!is.na(TYPE)) %>%
+#   select(GREATER.ADJ) %>% min()
+# match.vs.top.df %>% subset(GREATER.ADJ <= min.match.vs.top) %>% select(ANNOTATION)
+# > match.vs.top.df %>% subset(GREATER.ADJ <= min.match.vs.top) %>% select(ANNOTATION)
+# # A tibble: 1 × 1
+# ANNOTATION          
+# <chr>               
+#   1 Enformer:ENCFF313LYI --> https://www.encodeproject.org/experiments/ENCSR000AKD/ 
+# H3k27me3 chip-seq track
+# first generate perturbation scores from averaging
+track <- 'ENCFF313LYI'
+ps.track.top <- ps.combined.top %>% 
+  select(c('GENE', paste0(track,'_AVE_',ps))) %>%
+  `colnames<-`(c('GENE','TOP'))
+ps.track.stab <- ps.combined.stab %>% 
+  select(c('GENE', paste0(track,'_AVE_',ps))) %>%
+  `colnames<-`(c('GENE','STAB'))
+merged.df <- merge(merge(gw.moderator.df,
+                         ps.track.top,by='GENE'),
+                   ps.track.stab,
+                   by='GENE')
+merged.df$MATCH <- (merged.df[[paste0('TOP_',ps)]] == merged.df[[paste0('STAB_',ps)]])
+relevant.ids <- complete.cases(merged.df %>% select(c(paste0('TOP_',ps),paste0('STAB_',ps),
+                                                      'TOP','STAB')))
+collect.vars.df <- merged.df[relevant.ids,] %>% select(c('TOP','STAB','MATCH'))
+match.scores <- (collect.vars.df %>% subset(MATCH))$STAB
+nonmatch.top.scores <- (collect.vars.df %>% subset(!MATCH))$TOP
+nonmatch.stab.scores <- (collect.vars.df %>% subset(!MATCH))$STAB
+df.for.plot <- data.frame(SCORE = c(match.scores,
+                                    nonmatch.top.scores,
+                                    nonmatch.stab.scores),
+                          TYPE = c(rep('Matching',length(match.scores)),
+                                   rep('Non-match Top',length(nonmatch.top.scores)),
+                                   rep('Non-match Stable',length(nonmatch.stab.scores))))
+
+fig3.bottom.left.plot <- ggplot(df.for.plot, aes(x=abs(SCORE))) +
+  #geom_density(aes(fill = TYPE, color = TYPE),alpha=0.45) +
+  stat_ecdf(geom = "step", aes(colour = TYPE)) + 
+  xlim(c(0,0.25)) +
+  theme_bw() +
+  scale_color_manual('',labels=c('Matching',
+                                 'Non-match Stable',
+                                 'Non-match Top'),
+                     values=c('#e41a1c',
+                              '#377eb8',
+                              '#4daf4a')) +
+  xlab('Perturbation Score') +
+  #ylab('Density') +
+  ylab('Empirical CDF') +
+  geom_vline(xintercept = 1, lty ='dashed') +
+  ggtitle('C. Enformer Predicted H3K27me3\n     ChIP-seq (ENCFF313LYI), AVE') +
+  theme(plot.title = element_text(#hjust = 0.5,
+    face = 'bold'),
+    legend.position=c(0.55, 0.65))
+
+# Bottom right subfigure
+ps.track.top <- ps.combined.top %>% 
+  select(c('GENE', paste0(track,'_TSS_',ps))) %>%
+  `colnames<-`(c('GENE','TOP'))
+ps.track.stab <- ps.combined.stab %>% 
+  select(c('GENE', paste0(track,'_TSS_',ps))) %>%
+  `colnames<-`(c('GENE','STAB'))
+merged.df <- merge(merge(gw.moderator.df,
+                         ps.track.top,by='GENE'),
+                   ps.track.stab,
+                   by='GENE')
+merged.df$MATCH <- (merged.df[[paste0('TOP_',ps)]] == merged.df[[paste0('STAB_',ps)]])
+relevant.ids <- complete.cases(merged.df %>% select(c(paste0('TOP_',ps),paste0('STAB_',ps),
+                                                      'TOP','STAB')))
+collect.vars.df <- merged.df[relevant.ids,] %>% select(c('TOP','STAB','MATCH'))
+match.scores <- (collect.vars.df %>% subset(MATCH))$STAB
+nonmatch.top.scores <- (collect.vars.df %>% subset(!MATCH))$TOP
+nonmatch.stab.scores <- (collect.vars.df %>% subset(!MATCH))$STAB
+df.for.plot <- data.frame(SCORE = c(match.scores,
+                                    nonmatch.top.scores,
+                                    nonmatch.stab.scores),
+                          TYPE = c(rep('Matching',length(match.scores)),
+                                   rep('Non-match Top',length(nonmatch.top.scores)),
+                                   rep('Non-match Stable',length(nonmatch.stab.scores))))
+
+fig3.bottom.right.plot <- ggplot(df.for.plot, aes(x=abs(SCORE))) +
+  #geom_density(aes(fill = TYPE, color = TYPE),alpha=0.45) +
+  stat_ecdf(geom = "step", aes(colour = TYPE)) + 
+  xlim(c(0,0.25)) +
+  theme_bw() +
+  scale_color_manual('',labels=c('Matching',
+                                 'Non-match Stable',
+                                 'Non-match Top'),
+                     values=c('#e41a1c',
+                              '#377eb8',
+                              '#4daf4a')) +
+  xlab('Perturbation Score') +
+  #ylab('Density') +
+  ylab('Empirical CDF') +
+  geom_vline(xintercept = 1, lty ='dashed') +
+  ggtitle('D. Enformer Predicted H3K27me3\n     ChIP-seq (ENCFF313LYI), TSS') +
+  theme(plot.title = element_text(#hjust = 0.5,
+    face = 'bold'),
+    legend.position=c(0.55, 0.65))
+
+combined.plot <- gridExtra::grid.arrange(fig3.left.plot, 
+                        fig3.right.plot, 
+                        fig3.bottom.left.plot,
+                        fig3.bottom.right.plot, ncol = 2)
 
 ## Uncomment to save figure in output directory
 # ggsave(combined.plot,
-#        file = paste0('../outputs/manuscript_figs/fig3.jpg'),
-#        width = 8, height = 4,
+#        file = paste0('../outputs/manuscript_figs/fig3_022023.jpg'),
+#        width = 7, height = 7.5,
 #        dpi = 400)
 
 ## Figure 4: Top vs Stable (amongst all non-matching)
 message(date(), ': Generating Figure 4: Top vs Stable...')
 # Left subfigure
 track <- 'CADD.RawScore' 
+ps.track.top <- ps.combined.top %>% 
+  select(c('GENE', paste0(track,'_',ps))) %>%
+  `colnames<-`(c('GENE','TOP'))
+ps.track.stab <- ps.combined.stab %>% 
+  select(c('GENE', paste0(track,'_',ps))) %>%
+  `colnames<-`(c('GENE','STAB'))
+merged.df <- merge(merge(gw.moderator.df,
+                         ps.track.top,by='GENE'),
+                   ps.track.stab,
+                   by='GENE')
+merged.df$MATCH <- (merged.df[[paste0('TOP_',ps)]] == merged.df[[paste0('STAB_',ps)]])
+
 nonmatching.df <- merged.df %>% subset(!MATCH)
 rawcadd.plot <- ggplot(nonmatching.df, aes(x=TOP,y=STAB)) +
   geom_point(alpha=0.15) +
@@ -238,9 +366,9 @@ rawcadd.plot <- ggplot(nonmatching.df, aes(x=TOP,y=STAB)) +
   xlim(c(-2,6))+
   ylim(c(-2,6))+
   coord_fixed() +
-  ggtitle('Raw CADD') +
-  theme(plot.title=element_text(face = 'bold',
-                                hjust = 0.5),
+  ggtitle('A. Raw CADD') +
+  theme(plot.title=element_text(#hjust = 0.5,
+                                face = 'bold'),
         aspect.ratio=1)
 
 fig4.left.plot <- ggExtra::ggMarginal(rawcadd.plot, type='density')
@@ -310,7 +438,7 @@ point.est.2 <- point.est.2 %>% subset(variable != 'NEITHER')
 fig4.right.plot <- ggplot(point.est.2, aes(x=cutoff,y=100*value)) +
   geom_line(aes(color = variable)) +
   theme_bw() +
-  ylab('Percent of Genes') +
+  ylab("Percent of genes with deleterious variants") +
   xlab('Deleteriousness cutoff') +
   geom_vline(xintercept = 10, lty ='dashed') +
   geom_vline(xintercept = 20, lty ='dashed') +
@@ -329,13 +457,9 @@ fig4.right.plot <- ggplot(point.est.2, aes(x=cutoff,y=100*value)) +
                     values=c('#31a354',
                              '#3182bd',
                              '#c51b8a')) +
-  
-  ggtitle('PHRED-scaled CADD') +
-  theme(plot.title = element_text(face = 'bold',
-                                  hjust = 0.5)) +
-  ggtitle('PHRED-scaled CADD') +
-  theme(plot.title=element_text(face = 'bold',
-                                hjust = 0.5),
+  ggtitle('B. PHRED-scaled CADD') +
+  theme(plot.title=element_text(#hjust = 0.5,
+                                face = 'bold'),
         legend.key.size = unit(0.3, 'cm'),
         legend.position=c('0.6','0.75'))+
   guides(fill='none')
@@ -346,7 +470,7 @@ combined.plot <- gridExtra::grid.arrange(fig4.left.plot,
                                          ncol=2)
 ## Uncomment to save figure in output directory
 # ggsave(combined.plot,
-#        file = paste0('../outputs/manuscript_figs/fig4.jpg'),
+#        file = paste0('../outputs/manuscript_figs/fig4_022023.jpg'),
 #        width = 8, height = 4,
 #        dpi = 400)
 
@@ -354,4 +478,4 @@ combined.plot <- gridExtra::grid.arrange(fig4.left.plot,
 message(date(), ': Skipping Figure 5: PICS2 Overview...')
 
 message('END OF SCRIPT')
-sink()
+#sink()
