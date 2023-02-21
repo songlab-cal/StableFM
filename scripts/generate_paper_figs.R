@@ -198,7 +198,7 @@ df.for.plot <- data.frame(SCORE = c(match.scores,
 fig3.left.plot <- ggplot(df.for.plot, aes(x=SCORE)) +
   #geom_density(aes(fill = TYPE, color = TYPE),alpha=0.45) +
   stat_ecdf(geom = "step", aes(colour = TYPE)) + 
-  xlim(c(1,10)) +
+  xlim(c(1,5)) +
   theme_bw() +
   scale_color_manual('',labels=c('Matching',
                                  'Non-match Stable',
@@ -216,11 +216,11 @@ fig3.left.plot <- ggplot(df.for.plot, aes(x=SCORE)) +
   #ylab('Density') +
   ylab('Empirical CDF') +
   geom_vline(xintercept = 1, lty ='dashed') +
+  geom_vline(xintercept = 5, lty ='dashed') +
   ggtitle('A. Raw CADD') +
   theme(plot.title = element_text(#hjust = 0.5,
                                   face = 'bold'),
-        legend.position=c(0.55, 0.65))
-combined.plot <- gridExtra::grid.arrange(fig3.left.plot, fig3.right.plot, ncol = 2)  
+        legend.position=c(0.55, 0.5))
 
 # [!] 2/20/23 - Include Enformer plots
 # Bottom left subfigure
@@ -267,7 +267,10 @@ df.for.plot <- data.frame(SCORE = c(match.scores,
 fig3.bottom.left.plot <- ggplot(df.for.plot, aes(x=abs(SCORE))) +
   #geom_density(aes(fill = TYPE, color = TYPE),alpha=0.45) +
   stat_ecdf(geom = "step", aes(colour = TYPE)) + 
-  xlim(c(0,0.25)) +
+  xlim(c(0,0.015)) +
+  ylim(c(0.5,1)) +
+  geom_hline(yintercept = 0.5, lty ='dashed') +
+  geom_vline(xintercept = 0.015, lty ='dashed') +
   theme_bw() +
   scale_color_manual('',labels=c('Matching',
                                  'Non-match Stable',
@@ -282,7 +285,7 @@ fig3.bottom.left.plot <- ggplot(df.for.plot, aes(x=abs(SCORE))) +
   ggtitle('C. Enformer Predicted H3K27me3\n     ChIP-seq (ENCFF313LYI), AVE') +
   theme(plot.title = element_text(#hjust = 0.5,
     face = 'bold'),
-    legend.position=c(0.55, 0.65))
+    legend.position=c(0.55, 0.5))
 
 # Bottom right subfigure
 ps.track.top <- ps.combined.top %>% 
@@ -312,7 +315,10 @@ df.for.plot <- data.frame(SCORE = c(match.scores,
 fig3.bottom.right.plot <- ggplot(df.for.plot, aes(x=abs(SCORE))) +
   #geom_density(aes(fill = TYPE, color = TYPE),alpha=0.45) +
   stat_ecdf(geom = "step", aes(colour = TYPE)) + 
-  xlim(c(0,0.25)) +
+  xlim(c(0,0.015)) +
+  ylim(c(0.5,1)) +
+  geom_hline(yintercept = 0.5, lty ='dashed') +
+  geom_vline(xintercept = 0.015, lty ='dashed') +
   theme_bw() +
   scale_color_manual('',labels=c('Matching',
                                  'Non-match Stable',
@@ -327,18 +333,18 @@ fig3.bottom.right.plot <- ggplot(df.for.plot, aes(x=abs(SCORE))) +
   ggtitle('D. Enformer Predicted H3K27me3\n     ChIP-seq (ENCFF313LYI), TSS') +
   theme(plot.title = element_text(#hjust = 0.5,
     face = 'bold'),
-    legend.position=c(0.55, 0.65))
+    legend.position=c(0.55, 0.5))
 
 combined.plot <- gridExtra::grid.arrange(fig3.left.plot, 
                         fig3.right.plot, 
                         fig3.bottom.left.plot,
                         fig3.bottom.right.plot, ncol = 2)
 
-## Uncomment to save figure in output directory
-# ggsave(combined.plot,
-#        file = paste0('../outputs/manuscript_figs/fig3_022023.jpg'),
-#        width = 7, height = 7.5,
-#        dpi = 400)
+# Uncomment to save figure in output directory
+ggsave(combined.plot,
+       file = paste0('../outputs/manuscript_figs/fig3_022023.jpg'),
+       width = 7, height = 7.5,
+       dpi = 400)
 
 ## Figure 4: Top vs Stable (amongst all non-matching)
 message(date(), ': Generating Figure 4: Top vs Stable...')
