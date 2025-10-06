@@ -1,5 +1,9 @@
 # Data Files
 
+**Update (Oct 5, 2025)** Files for simulation results have been added under `simulations` subdirectory.
+- `PICS_SuSiE.zip` contains all results pertaining to simulations involving Stable vs Top PICS and Stable vs Top SuSiE.
+- `env_het.zip` contains all results pertaining to simulations involving Plain vs Stable PICS. 
+
 Data spanning multiple layers of analytical processing are provided here. 
 
 ## Directory Structure

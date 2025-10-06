@@ -10,6 +10,11 @@ Results are stored under `data/results_with_moderators`.
 
 For convenience, csv files with both raw and Benjamini-Hochberg-adjusted p-values are also stored under `data/results_with_moderators/p_values`.
 
+**Update (Oct 5, 2025)** Code for generating plots involving simulations have been added under `scripts/simulations` subdirectory. 
+- Two files must be unzipped in `data/simulations` before running plot generating code (`gen_sim_study_figures.R`) 
+- Scripts for simulating gene expression are compressed as `scripts/simulations/gene-exp-sim-scripts.zip`
+- Scripts for running all fine-mapping algorithms are compressed as `scripts/simulations/fine-mapping-scripts.zip`
+
 ## Summary data files
 
 Summary files containing the 378 functional annotations associated with each fine-mapped variant (stable or top) are stored under `data/all_func_annots`. We recommend directly working with these files to reproduce our findings and figures.
