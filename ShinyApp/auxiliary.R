@@ -282,5 +282,29 @@ getPairwisePlot <- function(func.class, func.annot, ps) {
   } else {
     to.return <- func.class.plot.list[[func.annot]][[as.numeric(ps)]]
   }
-  return(plot(to.return))
+  # Handle ggplot2 version incompatibility by rebuilding plot from data
+  tryCatch({
+    return(plot(to.return))
+  }, error = function(e) {
+    if (grepl("continuous_range", e$message)) {
+      # Extract data from the old ggplot object and rebuild with original layers:
+      # 1. geom_point(alpha = 0.02)
+      # 2. geom_bin2d(bins = 100)
+      # 3. geom_abline(intercept = 0, slope = 1, linetype = "dashed")
+      # 4. coord_fixed()
+      plot_data <- to.return$data
+      plot_labels <- to.return$labels
+
+      p <- ggplot(plot_data, aes(x = TOP, y = STABLE)) +
+        geom_point(alpha = 0.02) +
+        geom_bin2d(bins = 100) +
+        geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
+        coord_fixed() +
+        labs(x = plot_labels$x, y = plot_labels$y) +
+        theme_bw()
+      return(plot(p))
+    } else {
+      stop(e)
+    }
+  })
 }
