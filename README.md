@@ -32,9 +32,7 @@ Rscript generate_paper_figs.R
 
 We provide a Shiny application for visualizing and interpreting our results at both single-gene and pan-gene levels. You may explore the app by clicking on the link below. 
 
-```
-https://alan-aw.shinyapps.io/stability_v1/
-```
+> [https://alan-aw.shinyapps.io/stability_v1/](https://alan-aw.shinyapps.io/stability_v1/)
 
 Open-source code for building, deploying and modifying our app for your own use is available under `ShinyApp`. 
 
