@@ -1,8 +1,8 @@
-# Stability and Fine-Mapping
+# Stability and Genetic Fine-Mapping
 
 This repository contains data and scripts for the following paper:
 
-> Aw, A.J., Jin, L.C., Ioannidis, N.M., and Song, Y.S. (2023+) "The impact of stability considerations on genetic fine-mapping"
+> Aw, A.J., Jin, L.C., Ioannidis, N.M., and Song, Y.S. (2026) "[The impact of stability considerations on genetic fine-mapping](elifesciences.org/reviewed-preprints/88039)" *eLife* RP88039
 
 ## Fine-mapping results
 
@@ -28,9 +28,15 @@ Code for generating figures is stored under `scripts`.
 Rscript generate_paper_figs.R
 ```
 
-## Shiny App
+## Interactive application
 
-Open-source code for building and deploying our Shiny application is under `ShinyApp`. 
+We provide a Shiny application for visualizing and interpreting our results at both single-gene and pan-gene levels. You may explore the app by clicking on the link below. 
+
+```
+https://alan-aw.shinyapps.io/stability_v1/
+```
+
+Open-source code for building, deploying and modifying our app for your own use is available under `ShinyApp`. 
 
 ## Running PICS2
 

@@ -1,0 +1,13 @@
+# Shiny deployment
+rsconnect/
+ShinyApp/rsconnect/
+
+# R artifacts
+.Rhistory
+.Rdata
+.RData
+.Ruserdata
+*.Rproj.user
+
+# macOS
+.DS_Store
