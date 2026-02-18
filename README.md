@@ -2,7 +2,7 @@
 
 This repository contains data and scripts for the following paper:
 
-> Aw, A.J., Jin, L.C., Ioannidis, N.M., and Song, Y.S. (2026) "[The impact of stability considerations on genetic fine-mapping](elifesciences.org/reviewed-preprints/88039)" *eLife* RP88039
+> Aw, A.J., Jin, L.C., Ioannidis, N.M., and Song, Y.S. (2026) "[The impact of stability considerations on genetic fine-mapping](https://elifesciences.org/reviewed-preprints/88039)" *eLife* RP88039
 
 ## Fine-mapping results
 
